@@ -59,10 +59,14 @@ class Hewan
         Console.WriteLine($"Warna Kulit : {warnaKulit}");
     }
 
-    public void Bersuara()
+    public void Bersuara() //hidding 
     {
-        Console.WriteLine("Miaw");
+        Console.WriteLine("Bersuara");
     }
+    //public virtual void Bersuara()
+    //{
+    //    Console.WriteLine("Bersuara");
+    //}
 }
 
 class Harimau : Hewan
@@ -84,9 +88,28 @@ class Harimau : Hewan
 
     public void Bersuara()
     {
-        Console.WriteLine("kiw");
+        Console.WriteLine("Ngaung");
     }
 
+    //public override void Bersuara()
+    //{
+    //    Console.WriteLine("Ngaung");
+    //}
+
+}
+
+class Kambing : Hewan
+{
+    public Kambing(int jumlahKaki, string warnaKulit) : base(jumlahKaki, warnaKulit)
+    {
+        this.jumlahKaki = jumlahKaki;
+        this.warnaKulit = warnaKulit;
+    }
+
+    public void Bersuara()
+    {
+        Console.WriteLine("mbek");
+    }
 }
 
 
@@ -95,19 +118,23 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        //Console.WriteLine("Hello, World!");
 
-        Hewan hewan = new Hewan(2,"Hitam");
-        Console.WriteLine("Parent : ");
-        hewan.TampilkanInfo();
-        Console.WriteLine("");
+        //Hewan hewan = new Hewan(2,"Hitam");
+        //Console.WriteLine("Parent : ");
+        //hewan.TampilkanInfo();
+        //Console.WriteLine("");
 
+        //Harimau harimau = new Harimau(4, "Hitam Gelap", "Simba");
+        //Console.WriteLine("Child : ");
+
+
+        //hidding - Menyembunyikan method parent class 
+        //harimau.Bersuara();
         Harimau harimau = new Harimau(4, "Hitam Gelap", "Simba");
-        Console.WriteLine("Child : ");
-        harimau.TampilkanInfo();
+        Hewan hewanHarimau = harimau;
         harimau.Bersuara();
-
-
+        hewanHarimau.Bersuara();
 
 
 
